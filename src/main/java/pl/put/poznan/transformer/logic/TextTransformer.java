@@ -62,6 +62,23 @@ public class TextTransformer {
         return tmpString.substring(0, tmpString.length());
     }
 
+    static public String transformExtend(String text){
+        String[] shorted = {"np.","itp."};
+        String[] extend = {"na przyklad", "i tym podobne"};
+
+        for(int i=0; i< extend.length;i++) {
+            String regex = extend[i];
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(text);
+            while(matcher.find()){
+
+                text = text.substring(0,matcher.start())+shorted[i]+text.substring(matcher.end(),text.length());
+                matcher = pattern.matcher(text);
+            }
+        }
+        return text;
+    }
+
 
     //REMEMBER TO DELETE IT
     public static void main(String[] args) {
@@ -70,11 +87,12 @@ public class TextTransformer {
                 "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. " +
                 "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
         String sample1 = "Sialalala np. itp. itp. Sialalala np. itp.";
-
+        String sample2 = "Sialalala na przyklad i tym podobne i tym podobne Sialalala na przyklad i tym podobne";
 
         System.out.println("Upper -> " + transformUpper(sample));
         System.out.println("Lower ->)" + transformLower(sample));
         System.out.println("Capitalize ->" + transformCapital(sample));
         System.out.println(transformShort(sample1));
+        System.out.println(transformExtend(sample2));
     }
 }
