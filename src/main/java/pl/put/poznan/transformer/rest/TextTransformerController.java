@@ -1,15 +1,35 @@
 package pl.put.poznan.transformer.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import pl.put.poznan.transformer.logic.TextTransformer;
 
 import java.util.Arrays;
 
 
 @RestController
-@RequestMapping("/{text}")
-public class TextTransformerController {
+@RequestMapping("/test")
+public class TextTransformerController{
+
+
+        @RequestMapping("/home")
+        public ModelAndView welcome() {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("page.html");
+            return modelAndView;
+        }
+
+        @RequestMapping("/zadania")
+        public ModelAndView showFunctions() {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setViewName("login.html");
+            return modelAndView;
+        }
+
+
 
     private static final Logger logger = LoggerFactory.getLogger(TextTransformerController.class);
 
@@ -38,8 +58,6 @@ public class TextTransformerController {
         TextTransformer transformer = new TextTransformer(transforms);
         return transformer.transformUpper(text);
     }
-
-
 
 }
 
