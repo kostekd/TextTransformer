@@ -14,9 +14,9 @@ import java.util.regex.Pattern;
  */
 public class TextTransformer {
 
-    private final String[] transforms;
+    private final String transforms;
 
-    public TextTransformer(String[] transforms){
+    public TextTransformer(String transforms){
         this.transforms = transforms;
     }
 
@@ -26,11 +26,11 @@ public class TextTransformer {
         return text.toUpperCase();
     }
 
-    static public String transformLower(String text){
+    public String transformLower(String text){
         return text.toLowerCase();
     }
 
-    static public String transformCapital(String text){
+    public String transformCapital(String text){
         String[] tmpArr = text.split(" ");
         String tmpString = "";
         for(int i=0 ; i< tmpArr.length ; i++){
@@ -39,7 +39,7 @@ public class TextTransformer {
         return tmpString.substring(0, tmpString.length() - 1);
     }
 
-    static public String transformShort(String text){
+    public String transformShort(String text){
         String[] tmpArr = text.split(" ");
         String[] shorted = {"np.","itp."};
         String[] extend = {"na przyklad", "i tym podobne"};
@@ -65,7 +65,7 @@ public class TextTransformer {
         return tmpString.substring(0, tmpString.length());
     }
 
-    static public String transformExtend(String text){
+    public String transformExtend(String text){
         String[] shorted = {"np.","itp."};
         String[] extend = {"na przyklad", "i tym podobne"};
 
@@ -82,7 +82,7 @@ public class TextTransformer {
         return text;
     }
 
-    static public String eliminatedDuplicate(String text){
+    public String eliminateDuplicates(String text){
         String[] tmpArr = text.split(" ");
         List<String> list = Arrays.asList(tmpArr);
         boolean finish = false;
@@ -108,22 +108,4 @@ public class TextTransformer {
 
     }
 
-
-    //REMEMBER TO DELETE IT
-    public static void main(String[] args) {
-        String sample = "here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. " +
-                "If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. " +
-                "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. " +
-                "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
-        String sample1 = "Sialalala np. itp. itp. Sialalala np. itp.";
-        String sample2 = "Sialalala na przyklad i tym podobne i tym podobne Sialalala na przyklad i tym podobne";
-        String sample3 = "To do do lato gory rower rower xd rower xd xd xd xd xd xd.";
-
-        System.out.println("Upper -> " + transformUpper(sample));
-        System.out.println("Lower ->)" + transformLower(sample));
-        System.out.println("Capitalize ->" + transformCapital(sample));
-        System.out.println(transformShort(sample1));
-        System.out.println(transformExtend(sample2));
-        System.out.println(eliminatedDuplicate(sample3));
-    }
 }

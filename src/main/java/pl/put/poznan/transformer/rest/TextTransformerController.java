@@ -11,41 +11,78 @@ import java.util.Arrays;
 
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/transform")
 public class TextTransformerController{
-
-
-        @RequestMapping("/home")
-        public ModelAndView welcome() {
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("page.html");
-            return modelAndView;
-        }
-
-        @RequestMapping("/zadania")
-        public ModelAndView showFunctions() {
-            ModelAndView modelAndView = new ModelAndView();
-            modelAndView.setViewName("login.html");
-            return modelAndView;
-        }
-
-
 
     private static final Logger logger = LoggerFactory.getLogger(TextTransformerController.class);
 
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public String get(@PathVariable String text,
-                              @RequestParam(value="transforms", defaultValue="upper,escape") String[] transforms) {
+    @RequestMapping(value ="/upper/{text}",method = RequestMethod.GET, produces = "application/json")
+    public String getUpper(@PathVariable String text) {
 
         // log the parameters
         logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(transforms);
+        TextTransformer transformer = new TextTransformer(text);
         return transformer.transformUpper(text);
     }
 
+    @RequestMapping(value ="/lower/{text}",method = RequestMethod.GET, produces = "application/json")
+    public String getLower(@PathVariable String text) {
+
+        // log the parameters
+        logger.debug(text);
+
+        // perform the transformation, you should run your logic here, below is just a silly example
+        TextTransformer transformer = new TextTransformer(text);
+        return transformer.transformLower(text);
+    }
+
+    @RequestMapping(value ="/capital/{text}",method = RequestMethod.GET, produces = "application/json")
+    public String getCapital(@PathVariable String text) {
+
+        // log the parameters
+        logger.debug(text);
+
+        // perform the transformation, you should run your logic here, below is just a silly example
+        TextTransformer transformer = new TextTransformer(text);
+        return transformer.transformCapital(text);
+    }
+
+    @RequestMapping(value ="/short/{text}",method = RequestMethod.GET, produces = "application/json")
+    public String getShort(@PathVariable String text) {
+
+        // log the parameters
+        logger.debug(text);
+
+        // perform the transformation, you should run your logic here, below is just a silly example
+        TextTransformer transformer = new TextTransformer(text);
+        return transformer.transformShort(text);
+    }
+
+    @RequestMapping(value ="/extend/{text}",method = RequestMethod.GET, produces = "application/json")
+    public String getExtend(@PathVariable String text) {
+
+        // log the parameters
+        logger.debug(text);
+
+        // perform the transformation, you should run your logic here, below is just a silly example
+        TextTransformer transformer = new TextTransformer(text);
+        return transformer.transformExtend(text);
+    }
+
+    @RequestMapping(value ="/duplicate/{text}",method = RequestMethod.GET, produces = "application/json")
+    public String getDuplicates(@PathVariable String text) {
+
+        // log the parameters
+        logger.debug(text);
+
+        // perform the transformation, you should run your logic here, below is just a silly example
+        TextTransformer transformer = new TextTransformer(text);
+        return transformer.eliminateDuplicates(text);
+    }
+
+/*
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String post(@PathVariable String text,
                       @RequestBody String[] transforms) {
@@ -58,7 +95,7 @@ public class TextTransformerController{
         TextTransformer transformer = new TextTransformer(transforms);
         return transformer.transformUpper(text);
     }
-
+*/
 }
 
 
