@@ -3,6 +3,9 @@ package pl.put.poznan.transformer.logic;
 import org.springframework.boot.SpringApplication;
 import pl.put.poznan.transformer.app.TextTransformerApplication;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -79,6 +82,32 @@ public class TextTransformer {
         return text;
     }
 
+    static public String eliminatedDuplicate(String text){
+        String[] tmpArr = text.split(" ");
+        List<String> list = Arrays.asList(tmpArr);
+        boolean finish = false;
+        List<Integer> tmpIdx = new ArrayList<Integer>();
+        for(int i = 0; i < list.size()-1;i++) {
+            if (list.get(i).equals(list.get(i + 1))) {
+                    tmpIdx.add(i);
+
+            }
+        }
+        String tmpString = "";
+        for(int i=0 ; i< tmpArr.length ; i++){
+            if(tmpIdx.contains(i)){
+                continue;
+            }
+            else{
+                tmpString += tmpArr[i] + " ";
+            }
+
+        }
+
+        return tmpString.substring(0, tmpString.length());
+
+    }
+
 
     //REMEMBER TO DELETE IT
     public static void main(String[] args) {
@@ -88,11 +117,13 @@ public class TextTransformer {
                 "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.";
         String sample1 = "Sialalala np. itp. itp. Sialalala np. itp.";
         String sample2 = "Sialalala na przyklad i tym podobne i tym podobne Sialalala na przyklad i tym podobne";
+        String sample3 = "To do do lato gory rower rower xd rower xd xd xd xd xd xd.";
 
         System.out.println("Upper -> " + transformUpper(sample));
         System.out.println("Lower ->)" + transformLower(sample));
         System.out.println("Capitalize ->" + transformCapital(sample));
         System.out.println(transformShort(sample1));
         System.out.println(transformExtend(sample2));
+        System.out.println(eliminatedDuplicate(sample3));
     }
 }
