@@ -5,7 +5,7 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.put.poznan.transformer.logic.TextTransformer;
+import pl.put.poznan.transformer.logic.*;
 
 import java.util.Arrays;
 
@@ -23,8 +23,8 @@ public class TextTransformerController{
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(text);
-        return transformer.transformUpper(text);
+        TextTransformUpper transformer = new TextTransformUpper(text);
+        return transformer.transform();
     }
 
     @RequestMapping(value ="/lower/{text}",method = RequestMethod.GET, produces = "application/json")
@@ -34,8 +34,8 @@ public class TextTransformerController{
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(text);
-        return transformer.transformLower(text);
+        TextTransformLower transformer = new TextTransformLower(text);
+        return transformer.transform();
     }
 
     @RequestMapping(value ="/capital/{text}",method = RequestMethod.GET, produces = "application/json")
@@ -45,8 +45,8 @@ public class TextTransformerController{
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(text);
-        return transformer.transformCapital(text);
+        TextTransformCapital transformer = new TextTransformCapital(text);
+        return transformer.transform();
     }
 
     @RequestMapping(value ="/short/{text}",method = RequestMethod.GET, produces = "application/json")
@@ -56,8 +56,8 @@ public class TextTransformerController{
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(text);
-        return transformer.transformShort(text);
+        TextTransformShorts transformer = new TextTransformShorts(text);
+        return transformer.transform();
     }
 
     @RequestMapping(value ="/extend/{text}",method = RequestMethod.GET, produces = "application/json")
@@ -67,8 +67,8 @@ public class TextTransformerController{
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(text);
-        return transformer.transformExtend(text);
+        TextTransformExtend transformer = new TextTransformExtend(text);
+        return transformer.transform();
     }
 
     @RequestMapping(value ="/duplicate/{text}",method = RequestMethod.GET, produces = "application/json")
@@ -78,8 +78,8 @@ public class TextTransformerController{
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(text);
-        return transformer.eliminateDuplicates(text);
+        TextTransformEliminateDuplicates transformer = new TextTransformEliminateDuplicates(text);
+        return transformer.transform();
     }
 
 /*
