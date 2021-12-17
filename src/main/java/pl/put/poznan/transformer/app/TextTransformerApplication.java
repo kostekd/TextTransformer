@@ -30,6 +30,7 @@ public class TextTransformerApplication {
             System.out.println("4.Skrot");
             System.out.println("5.Rozwiniecie");
             System.out.println("6.Duplikaty");
+            System.out.println("7.Znaki specjalne");
 
             System.out.println("Wybor:");
             option = scanInt.nextInt();
@@ -60,6 +61,9 @@ public class TextTransformerApplication {
                     System.out.println("Rest zwraca-> " + rest.getDuplicates(tekst));
                     break;
 
+
+                case 7:
+                    System.out.println("Rest zwraca-> " + rest.getSpecialSigns(tekst));
 
             }
         }while(tekst != "koniec");

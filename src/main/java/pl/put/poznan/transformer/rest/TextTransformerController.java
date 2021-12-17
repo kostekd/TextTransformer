@@ -82,6 +82,18 @@ public class TextTransformerController{
         return transformer.transform();
     }
 
+
+    @RequestMapping(value ="/specialSigns/{text}",method = RequestMethod.GET, produces = "application/json")
+    public String getSpecialSigns(@PathVariable String text) {
+
+        // log the parameters
+        logger.debug(text);
+
+        // perform the transformation, you should run your logic here, below is just a silly example
+        TextTransformSpecialSigns transformer = new TextTransformSpecialSigns(text);
+        return transformer.transform();
+    }
+
 /*
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String post(@PathVariable String text,
