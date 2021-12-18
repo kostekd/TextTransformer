@@ -3,14 +3,30 @@ package pl.put.poznan.transformer.logic;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * Klasa TextTransformDuplicates służy do eliminacji znajdujących się koło siebie identycznych
+ * słów. TextTransformDuplicates implementuje interfejs TextTransform.
+ * Na przykład gdy na wejściu pojawi się tekst "inzynieria inzynieria oprogramowania oprogramowania"
+ * to na wyjściu otrzymamy tekst "inzynieria oprogramowania".
+ *
+ *
+ * @version 1.0
+ */
 public class TextTransformEliminateDuplicates implements TextTransform{
     private final String text;
-
+    /**
+     *
+     *Konstruktur klasy przyjmuje tekst w którym mają zostać usunięte duplikaty.
+     * @param text wejsciowy tekst
+     *
+     *
+     */
     public TextTransformEliminateDuplicates(String text) {
         this.text = text;
     }
-
+    /**
+     * @return zwraca tekst z usuniętymi znajdującymi się koło siebie identycznymi słowami
+     */
     @Override
     public String transform() {
         String[] tmpArr = text.split(" ");
