@@ -1,0 +1,10 @@
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/logic/TextTransform.java
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/logic/TextTransformSpecialSigns.java
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/logic/TextTransformCapital.java
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/rest/TextTransformerController.java
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/app/TextTransformerApplication.java
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/logic/TextTransformShorts.java
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/logic/TextTransformEliminateDuplicates.java
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/logic/TextTransformUpper.java
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/logic/TextTransformExtend.java
+/Users/j.kolodziejski/Documents/GitHub/TextTransformer/src/main/java/pl/put/poznan/transformer/logic/TextTransformLower.java
