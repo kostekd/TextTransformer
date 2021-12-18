@@ -34,7 +34,7 @@ public class TextTransformerApplication {
 
             System.out.println("Wybor:");
             option = scanInt.nextInt();
-
+            //Test Test
             switch (option) {
 
                 case 1:
