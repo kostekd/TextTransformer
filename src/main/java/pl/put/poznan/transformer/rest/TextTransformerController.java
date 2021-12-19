@@ -16,82 +16,86 @@ public class TextTransformerController{
 
     private static final Logger logger = LoggerFactory.getLogger(TextTransformerController.class);
 
-    @RequestMapping(value ="/upper/{text}",method = RequestMethod.GET, produces = "application/json")
-    public String getUpper(@PathVariable String text) {
+    @RequestMapping(value ="/upper/{text}",method = RequestMethod.POST, produces = "application/json")
+    public String getUpper(@PathVariable String text, @RequestBody TextTransform transform) {
 
         // log the parameters
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformUpper transformer = new TextTransformUpper(text);
-        return transformer.transform();
+        //TextTransformUpper transformer = new TextTransformUpper(text);
+        String result = transform.transform();
+        return result;
     }
 
-    @RequestMapping(value ="/lower/{text}",method = RequestMethod.GET, produces = "application/json")
-    public String getLower(@PathVariable String text) {
+    @RequestMapping(value ="/lower/{text}",method = RequestMethod.POST, produces = "application/json")
+    public String getLower(@PathVariable String text, @RequestBody TextTransform transform) {
 
         // log the parameters
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformLower transformer = new TextTransformLower(text);
-        return transformer.transform();
+        String result = transform.transform();
+        return result;
     }
 
-    @RequestMapping(value ="/capital/{text}",method = RequestMethod.GET, produces = "application/json")
-    public String getCapital(@PathVariable String text) {
-
+    @RequestMapping(value ="/capital/{text}",method = RequestMethod.POST, produces = "application/json")
+    public String getCapital(@PathVariable String text, @RequestBody TextTransform transform) {
         // log the parameters
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformCapital transformer = new TextTransformCapital(text);
-        return transformer.transform();
+        String result = transform.transform();
+
+        return result;
     }
 
-    @RequestMapping(value ="/short/{text}",method = RequestMethod.GET, produces = "application/json")
-    public String getShort(@PathVariable String text) {
-
+    @RequestMapping(value ="/short/{text}",method = RequestMethod.POST, produces = "application/json")
+    public String getShort(@PathVariable String text, @RequestBody TextTransform transform) {
         // log the parameters
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformShorts transformer = new TextTransformShorts(text);
-        return transformer.transform();
+        String result = transform.transform();
+
+        return result;
     }
 
-    @RequestMapping(value ="/extend/{text}",method = RequestMethod.GET, produces = "application/json")
-    public String getExtend(@PathVariable String text) {
+    @RequestMapping(value ="/extend/{text}",method = RequestMethod.POST, produces = "application/json")
+    public String getExtend(@PathVariable String text, @RequestBody TextTransform transform) {
 
         // log the parameters
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformExtend transformer = new TextTransformExtend(text);
-        return transformer.transform();
+        String result = transform.transform();
+
+        return result;
     }
 
-    @RequestMapping(value ="/duplicate/{text}",method = RequestMethod.GET, produces = "application/json")
-    public String getDuplicates(@PathVariable String text) {
+    @RequestMapping(value ="/duplicate/{text}",method = RequestMethod.POST, produces = "application/json")
+    public String getDuplicates(@PathVariable String text, @RequestBody TextTransform transform) {
 
         // log the parameters
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformEliminateDuplicates transformer = new TextTransformEliminateDuplicates(text);
-        return transformer.transform();
+        String result = transform.transform();
+
+        return result;
     }
 
 
-    @RequestMapping(value ="/specialSigns/{text}",method = RequestMethod.GET, produces = "application/json")
-    public String getSpecialSigns(@PathVariable String text) {
+    @RequestMapping(value ="/specialSigns/{text}",method = RequestMethod.POST, produces = "application/json")
+    public String getSpecialSigns(@PathVariable String text, @RequestBody TextTransform transform) {
 
         // log the parameters
         logger.debug(text);
 
         // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformSpecialSigns transformer = new TextTransformSpecialSigns(text);
-        return transformer.transform();
+        String result = transform.transform();
+
+        return result;
     }
 
 /*

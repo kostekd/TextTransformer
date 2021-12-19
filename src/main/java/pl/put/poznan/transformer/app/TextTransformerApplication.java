@@ -2,6 +2,7 @@ package pl.put.poznan.transformer.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import pl.put.poznan.transformer.logic.*;
 import pl.put.poznan.transformer.rest.TextTransformerController;
 
 import javax.swing.*;
@@ -14,6 +15,7 @@ public class TextTransformerApplication {
     public static void main(String[] args) {
 
         String tekst;
+        TextTransform textTransformer;
         int option;
         Scanner scan = new Scanner(System.in);
         Scanner scanInt = new Scanner(System.in);
@@ -38,32 +40,39 @@ public class TextTransformerApplication {
             switch (option) {
 
                 case 1:
-                    System.out.println("Rest zwraca-> " + rest.getUpper(tekst));
+                    textTransformer = new TextTransformUpper(tekst);
+                    System.out.println("Rest zwraca-> " + rest.getUpper(tekst, textTransformer));
                     break;
 
                 case 2:
-                    System.out.println("Rest zwraca-> " + rest.getLower(tekst));
+                    textTransformer = new TextTransformLower(tekst);
+                    System.out.println("Rest zwraca-> " + rest.getLower(tekst, textTransformer));
                     break;
 
                 case 3:
-                    System.out.println("Rest zwraca-> " + rest.getCapital(tekst));
+                    textTransformer = new TextTransformCapital(tekst);
+                    System.out.println("Rest zwraca-> " + rest.getCapital(tekst, textTransformer));
                     break;
 
                 case 4:
-                    System.out.println("Rest zwraca-> " + rest.getShort(tekst));
+                    textTransformer = new TextTransformShorts(tekst);
+                    System.out.println("Rest zwraca-> " + rest.getShort(tekst, textTransformer));
                     break;
 
                 case 5:
-                    System.out.println("Rest zwraca-> " + rest.getExtend(tekst));
+                    textTransformer = new TextTransformExtend(tekst);
+                    System.out.println("Rest zwraca-> " + rest.getExtend(tekst, textTransformer));
                     break;
 
                 case 6:
-                    System.out.println("Rest zwraca-> " + rest.getDuplicates(tekst));
+                    textTransformer = new TextTransformEliminateDuplicates(tekst);
+                    System.out.println("Rest zwraca-> " + rest.getDuplicates(tekst, textTransformer));
                     break;
 
 
                 case 7:
-                    System.out.println("Rest zwraca-> " + rest.getSpecialSigns(tekst));
+                    textTransformer = new TextTransformSpecialSigns(tekst);
+                    System.out.println("Rest zwraca-> " + rest.getSpecialSigns(tekst, textTransformer));
 
             }
         }while(tekst != "koniec");
