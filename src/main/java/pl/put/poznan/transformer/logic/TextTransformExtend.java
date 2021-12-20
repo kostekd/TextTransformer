@@ -12,8 +12,9 @@ public class TextTransformExtend implements TextTransform {
 
     @Override
     public String transform() {
-        String[] shorted = {"np.","itp."};
-        String[] extend = {"na przyklad", "i tym podobne"};
+        String[] shorted = {"np.","itp.","Np.", "Itp.", "dr", "Dr", "prof.", "Prof.", "itd.", "Itd."};
+        String[] extend = {"na przyklad", "i tym podobne","Na przyklad", "I tym podobne", "doktor", "Doktor",
+                "profesor", "Profesor", "i tak dalej", "I tak dalej"};
 
         for(int i=0; i< extend.length;i++) {
             String regex = extend[i];

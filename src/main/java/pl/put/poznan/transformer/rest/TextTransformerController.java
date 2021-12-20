@@ -2,6 +2,7 @@ package pl.put.poznan.transformer.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -97,7 +98,6 @@ public class TextTransformerController{
 
         return result;
     }
-
 /*
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public String post(@PathVariable String text,

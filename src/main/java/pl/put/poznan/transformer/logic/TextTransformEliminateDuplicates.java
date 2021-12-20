@@ -33,10 +33,15 @@ public class TextTransformEliminateDuplicates implements TextTransform{
         List<String> list = Arrays.asList(tmpArr);
         boolean finish = false;
         List<Integer> tmpIdx = new ArrayList<Integer>();
+        String tmpDot = "";
+        String tmpCom = "";
+        String tmpNormal ="";
         for(int i = 0; i < list.size()-1;i++) {
-            if (list.get(i).equals(list.get(i + 1))) {
+            tmpDot = list.get(i) + '.';
+            tmpCom = list.get(i) + ',';
+            tmpNormal = list.get(i);
+            if (tmpNormal.equals(list.get(i + 1)) || tmpDot.equals(list.get(i + 1)) || tmpCom.equals(list.get(i + 1))) {
                 tmpIdx.add(i);
-
             }
         }
         String tmpString = "";
