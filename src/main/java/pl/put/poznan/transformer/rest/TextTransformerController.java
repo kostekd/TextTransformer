@@ -23,8 +23,7 @@ public class TextTransformerController{
         // log the parameters
         logger.debug(text);
 
-        // perform the transformation, you should run your logic here, below is just a silly example
-        //TextTransformUpper transformer = new TextTransformUpper(text);
+        // logic
         String result = transform.transform();
         return result;
     }
@@ -35,7 +34,7 @@ public class TextTransformerController{
         // log the parameters
         logger.debug(text);
 
-        // perform the transformation, you should run your logic here, below is just a silly example
+        // logic
         String result = transform.transform();
         return result;
     }
@@ -45,7 +44,7 @@ public class TextTransformerController{
         // log the parameters
         logger.debug(text);
 
-        // perform the transformation, you should run your logic here, below is just a silly example
+        // logic
         String result = transform.transform();
 
         return result;
@@ -56,7 +55,7 @@ public class TextTransformerController{
         // log the parameters
         logger.debug(text);
 
-        // perform the transformation, you should run your logic here, below is just a silly example
+        // logic
         String result = transform.transform();
 
         return result;
@@ -68,7 +67,7 @@ public class TextTransformerController{
         // log the parameters
         logger.debug(text);
 
-        // perform the transformation, you should run your logic here, below is just a silly example
+        // logic
         String result = transform.transform();
 
         return result;
@@ -80,7 +79,7 @@ public class TextTransformerController{
         // log the parameters
         logger.debug(text);
 
-        // perform the transformation, you should run your logic here, below is just a silly example
+        // logic
         String result = transform.transform();
 
         return result;
@@ -93,25 +92,11 @@ public class TextTransformerController{
         // log the parameters
         logger.debug(text);
 
-        // perform the transformation, you should run your logic here, below is just a silly example
+        // logic
         String result = transform.transform();
 
         return result;
     }
-/*
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    public String post(@PathVariable String text,
-                      @RequestBody String[] transforms) {
-
-        // log the parameters
-        logger.debug(text);
-        logger.debug(Arrays.toString(transforms));
-
-        // perform the transformation, you should run your logic here, below is just a silly example
-        TextTransformer transformer = new TextTransformer(transforms);
-        return transformer.transformUpper(text);
-    }
-*/
 }
 
 
