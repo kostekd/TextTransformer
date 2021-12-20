@@ -6,6 +6,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import pl.put.poznan.transformer.logic.*;
 import pl.put.poznan.transformer.rest.TextTransformerController;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 
@@ -23,6 +24,7 @@ public class TextTransformerApplication {
         TextTransformerController rest = new TextTransformerController();
 
         do {
+            System.out.println("\nJeśli chcesz zakończyć działanie programu wpisz 'koniec'");
             System.out.println("Podaj napis:");
             tekst = scan.nextLine();
             if(!tekst.equals("koniec")) {
