@@ -1,4 +1,8 @@
 package pl.put.poznan.transformer.logic;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Klasa TextTransformLower służy do zamiany wszystkich liter z dużych na małe.
  * TextTransformLower implementuje interfejs TextTransform.
@@ -10,6 +14,7 @@ package pl.put.poznan.transformer.logic;
  */
 public class TextTransformLower implements TextTransform{
     private final String transforms;
+    private static final Logger LOGGER = LoggerFactory.getLogger(TextTransformCapital.class.getName());
     /**
      *
      *Konstruktur klasy przyjmuje tekst który ma zostać zmieniony na małe litery.
@@ -25,6 +30,7 @@ public class TextTransformLower implements TextTransform{
      */
     @Override
     public String transform() {
+        LOGGER.debug("Changing word to lower");
         return transforms.toLowerCase();
     }
 }

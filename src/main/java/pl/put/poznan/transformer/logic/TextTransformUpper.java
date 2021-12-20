@@ -1,4 +1,8 @@
 package pl.put.poznan.transformer.logic;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Klasa TextTransformUpper służy do zamiany wszystkich liter z małych na duże.
  * TextTransformUpper implementuje interfejs TextTransform.
@@ -9,7 +13,7 @@ package pl.put.poznan.transformer.logic;
  * @version 1.0
  */
 public class TextTransformUpper implements TextTransform {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(TextTransformCapital.class.getName());
     private final String transforms;
     /**
      *
@@ -26,6 +30,7 @@ public class TextTransformUpper implements TextTransform {
      */
     @Override
     public String transform() {
+        LOGGER.debug("Changing word to upper");
         return transforms.toUpperCase();
     }
 }

@@ -1,5 +1,8 @@
 package pl.put.poznan.transformer.logic;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -14,6 +17,7 @@ import java.util.List;
  */
 public class TextTransformEliminateDuplicates implements TextTransform{
     private final String text;
+    private static final Logger LOGGER = LoggerFactory.getLogger(TextTransformCapital.class.getName());
     /**
      *
      *Konstruktur klasy przyjmuje tekst w którym mają zostać usunięte duplikaty.
@@ -29,13 +33,16 @@ public class TextTransformEliminateDuplicates implements TextTransform{
      */
     @Override
     public String transform() {
+        LOGGER.info("Deleting duplicate");
         String[] tmpArr = text.split(" ");
+        LOGGER.debug("Splited word");
         List<String> list = Arrays.asList(tmpArr);
         boolean finish = false;
         List<Integer> tmpIdx = new ArrayList<Integer>();
         String tmpDot = "";
         String tmpCom = "";
         String tmpNormal ="";
+        LOGGER.debug("Looking for duplication");
         for(int i = 0; i < list.size()-1;i++) {
             tmpDot = list.get(i) + '.';
             tmpCom = list.get(i) + ',';
@@ -54,7 +61,7 @@ public class TextTransformEliminateDuplicates implements TextTransform{
             }
 
         }
-
+        LOGGER.debug("return new text");
         return tmpString.substring(0, tmpString.length());
     }
 }
