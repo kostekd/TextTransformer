@@ -76,6 +76,10 @@ public class TextTransformerApplication {
                     case 7:
                         textTransformer = new TextTransformSpecialSigns(tekst);
                         System.out.println("Rest zwraca-> " + rest.getSpecialSigns(tekst, textTransformer));
+                        break;
+                    default:
+                        System.out.println("Nie ma takiego rozwiązania");
+                        break;
                 }
             }
         }while(!tekst.equals("koniec"));

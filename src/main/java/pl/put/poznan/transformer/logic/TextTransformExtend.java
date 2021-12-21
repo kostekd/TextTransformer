@@ -16,9 +16,11 @@ public class TextTransformExtend implements TextTransform {
     @Override
     public String transform() {
         LOGGER.info("Extend words");
-        String[] shorted = {"np.","itp.","Np.", "Itp.", "dr", "Dr", "prof.", "Prof.", "itd.", "Itd."};
+        String[] shorted = {"np.","itp.","Np.", "Itp.", "dr", "Dr", "prof.", "Prof.", "itd.", "Itd.","NP.","ITP.","ITD",
+        "m.in.","M.IN."};
         String[] extend = {"na przyklad", "i tym podobne","Na przyklad", "I tym podobne", "doktor", "Doktor",
-                "profesor", "Profesor", "i tak dalej", "I tak dalej"};
+                "profesor", "Profesor", "i tak dalej", "I tak dalej","NA PRZYKLAD"," I TYM PODOBNE","I TAK DALEJ",
+        "miedzy innymi","MIEDZY INNYMI"};
         LOGGER.debug("Looking for extend words");
         for(int i=0; i< extend.length;i++) {
             String regex = extend[i];
