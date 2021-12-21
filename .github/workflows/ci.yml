@@ -1,22 +1,19 @@
 name: Java CI
-
 on: [push]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 11
+      - name: Set JDK 11
         uses: actions/setup-java@v2
         with:
           java-version: '11'
           distribution: 'adopt'
           cache: maven
-      - name: Validate, build and run tests
-        run: mvn --batch-mode --update-snapshots verify
-      - name: Generate Documentation
-        run: mvn javadoc:javadoc
-      - name: Create file .jar
-        run: mvn package
+      - run: mvn --batch-mode --update-snapshots verify
+      - run: mkdir staging && cp target/*.jar staging
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
