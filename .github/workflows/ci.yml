@@ -17,6 +17,6 @@ jobs:
       - name: Validate, build and run tests
         run: mvn --batch-mode --update-snapshots verify
       - name: Generate Documentation
-        run: mvn javadoc:javadoc
+        run: mvn site
       - name: Create file .jar
         run: mvn package
